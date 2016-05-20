@@ -4,6 +4,8 @@ body {
   font-size: 24px;
   min-height: 100vh;
   flex-direction: column;
+  opacity: 1;
+  transition: 2.5s opacity;
 }
 
 .fade-out {
@@ -123,7 +125,37 @@ li:hover a {
   text-decoration: underline;
 }
 
+/*Responsive Styles*/
 
+@media screen and (max-width : 1379px){
+	/*Make dropdown links appear inline*/
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logoWrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menuWrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    padding-bottom: 10px;
+  }
+}
 
 /* FOOTER */
 
@@ -148,4 +180,11 @@ footer {
     margin-right: 20px;
     padding-bottom: 22px;
   }
+}
+
+.socialBoxWrap {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
 }
