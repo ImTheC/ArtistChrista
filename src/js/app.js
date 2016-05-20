@@ -53,4 +53,46 @@ var paintings = [
       $('.galleryBox').append(art);
   });
 
+  $('#gallery').on("click", function(){
+    if ( !galleryPopped ) {
+      $('#contactPopUp').fadeOut(500);
+      $('#aboutPopUp').fadeOut(500);
+      $('.galleryBox').delay(500).fadeIn(500);
+      galleryPopped = true;
+      aboutPopped = false;
+      contactPopped = false;
+      $('#contact').removeClass('highlighted');
+      $('#about').removeClass('highlighted');
+      $(this).addClass('highlighted');
+    }
+  });
+
+  $('#contact').on("click", function(){
+    if ( !contactPopped ) {
+      $('.galleryBox').fadeOut(500);
+      $('#aboutPopUp').fadeOut(500);
+      $('#contactPopUp').delay(500).fadeIn(500);
+      contactPopped = true;
+      aboutPopped = false;
+      galleryPopped = false;
+      $('#gallery').removeClass('highlighted');
+      $('#about').removeClass('highlighted');
+      $(this).addClass('highlighted');
+    }
+  });
+
+  $('#about').on("click", function(){
+    if ( !aboutPopped ) {
+      $('.galleryBox').fadeOut(500);
+      $('#contactPopUp').fadeOut(500);
+      $('#aboutPopUp').delay(500).fadeIn(500);
+      aboutPopped = true;
+      galleryPopped = false;
+      contactPopped = false;
+      $('#contact').removeClass('highlighted');
+      $('#gallery').removeClass('highlighted');
+      $(this).addClass('highlighted');
+    }
+  });
+
 });
