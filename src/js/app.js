@@ -47,9 +47,13 @@ var paintings = [
 
   $('body').removeClass('fade-out');
 
+  var remGallery = function() {
+    $('.galleryBox').find('img').remove();
+  };
+
   var loadGallery = function() {
     paintings.forEach(function(item, index){
-        var art = "<a href='src/images/paintings/" + item.src + "' data-lightbox='gallery'><img class='' id='" + index + "' data-pin-url='http://www.ArtistChrista.com' data-pin-media='http://www.ArtistChrista.com/src/images/paintings/" + item.src + "' data-pin-description='" + item.name + ". By Christa Anderson.' alt='Thumbnail of " + item.name + ". By Christa Anderson.' src='src/images/thumb/thumb_" + item.src + "'></a>";
+        var art = "<a href='src/images/paintings/" + item.src + "' data-lightbox='gallery'><img class='thumb' id='" + index + "' data-pin-url='http://www.ArtistChrista.com' data-pin-media='http://www.ArtistChrista.com/src/images/paintings/" + item.src + "' data-pin-description='" + item.name + ". By Christa Anderson.' alt='Thumbnail of " + item.name + ". By Christa Anderson.' src='src/images/thumb/thumb_" + item.src + "'></a>";
 
         var $current = "#" + index;
 
@@ -70,6 +74,7 @@ var paintings = [
     $('#contactPopUp').fadeOut(500);
     $('#aboutPopUp').fadeOut(500);
     $('.galleryBox').delay(500).fadeIn(500);
+    loadGallery();
     galleryPopped = true;
     aboutPopped = false;
     contactPopped = false;
@@ -92,7 +97,7 @@ var paintings = [
 
   $('#contact').on("click", function(){
     if ( !contactPopped ) {
-      $('.galleryBox').fadeOut(500);
+      $('.galleryBox').fadeOut(500, remGallery);
       $('#aboutPopUp').fadeOut(500);
       $('#contactPopUp').delay(500).fadeIn(500);
       contactPopped = true;
@@ -106,12 +111,13 @@ var paintings = [
 
   $('#about').on("click", function(){
     if ( !aboutPopped ) {
-      $('.galleryBox').fadeOut(500);
+      $('.galleryBox').fadeOut(500, remGallery);
       $('#contactPopUp').fadeOut(500);
       $('#aboutPopUp').delay(500).fadeIn(500);
       aboutPopped = true;
       galleryPopped = false;
       contactPopped = false;
+
       $('#contact').removeClass('highlighted');
       $('#gallery').removeClass('highlighted');
       $(this).addClass('highlighted');
