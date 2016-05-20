@@ -47,11 +47,24 @@ var paintings = [
 
   $('body').removeClass('fade-out');
 
-  paintings.forEach(function(item){
-      var art = "<a href='src/images/paintings/" + item.src + "' data-lightbox='gallery'><img class='thumb' data-pin-url='http://www.ArtistChrista.com' data-pin-media='http://www.ArtistChrista.com/src/images/paintings/" + item.src + "' data-pin-description='" + item.name + ". By Christa Anderson.' alt='Thumbnail of " + item.name + ". By Christa Anderson.' src='src/images/thumb/thumb_" + item.src + "'></a>";
+  var loadGallery = function() {
+    paintings.forEach(function(item, index){
+        var art = "<a href='src/images/paintings/" + item.src + "' data-lightbox='gallery'><img class='' id='" + index + "' data-pin-url='http://www.ArtistChrista.com' data-pin-media='http://www.ArtistChrista.com/src/images/paintings/" + item.src + "' data-pin-description='" + item.name + ". By Christa Anderson.' alt='Thumbnail of " + item.name + ". By Christa Anderson.' src='src/images/thumb/thumb_" + item.src + "'></a>";
 
-      $('.galleryBox').append(art);
-  });
+        var $current = "#" + index;
+
+        $('.galleryBox').append(art);
+        $($current).css("display", "none");
+    });
+
+    for ( var i = 0; i < paintings.length; i++ ) {
+      var $current = "#" + i;
+      var delayTime = 150*i;
+      $($current).delay(delayTime).fadeIn(1500);
+    }
+  };
+
+  loadGallery();
 
   var showGallery = function(){
     $('#contactPopUp').fadeOut(500);
