@@ -124,4 +124,12 @@ var paintings = [
     }
   });
 
+  $('#contactPopUp').on("click", function(){
+    // console.log($('#mce-success-repsonse').css());
+    // if ( a === a ) {
+    //   $('.form-group').fadeOut();
+    // }
+  });
+
+// <div class="response" id="mce-success-response" style="display: block;">Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you.</div>
 });
