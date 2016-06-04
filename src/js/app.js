@@ -58,21 +58,21 @@ var paintings = [
         var $current = "#" + index;
 
         $('.galleryBox').append(art);
-        $($current).css("display", "none");
+        $($current).css("opacity", "0");
     });
 
     for ( var i = 0; i < paintings.length; i++ ) {
       var $current = "#" + i;
       var delayTime = 150*i;
-      $($current).delay(delayTime).fadeIn(1500);
+      $($current).delay(delayTime).animate({opacity:"1"}, 1500);
     }
   };
 
   loadGallery();
 
   var showGallery = function(){
-    $('#contactPopUp').fadeOut(500);
-    $('#aboutPopUp').fadeOut(500);
+    $('#contactPage').fadeOut(500);
+    $('#aboutPage').fadeOut(500);
     $('.galleryBox').delay(500).fadeIn(500);
     loadGallery();
     galleryPopped = true;
@@ -98,8 +98,8 @@ var paintings = [
   $('#contact').on("click", function(){
     if ( !contactPopped ) {
       $('.galleryBox').fadeOut(500, remGallery);
-      $('#aboutPopUp').fadeOut(500);
-      $('#contactPopUp').delay(500).fadeIn(500);
+      $('#aboutPage').fadeOut(500);
+      $('#contactPage').delay(500).fadeIn(500);
       contactPopped = true;
       aboutPopped = false;
       galleryPopped = false;
@@ -112,8 +112,8 @@ var paintings = [
   $('#about').on("click", function(){
     if ( !aboutPopped ) {
       $('.galleryBox').fadeOut(500, remGallery);
-      $('#contactPopUp').fadeOut(500);
-      $('#aboutPopUp').delay(500).fadeIn(500);
+      $('#contactPage').fadeOut(500);
+      $('#aboutPage').delay(500).fadeIn(500);
       aboutPopped = true;
       galleryPopped = false;
       contactPopped = false;

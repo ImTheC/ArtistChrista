@@ -1,11 +1,16 @@
 body {
   display: flex;
+  flex-direction: column;
   font-family: 'Maven Pro', sans-serif;
   font-size: 24px;
   min-height: 100vh;
-  flex-direction: column;
   opacity: 1;
   transition: 2.5s opacity;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display SC', serif;
+  font-weight: 700;
 }
 
 .fade-out {
@@ -27,10 +32,48 @@ body {
 
 header {
   display: flex;
-  // justify-content: space-between;
+  flex-direction: column;
   padding: 10px 0px;
   margin-bottom: 30px;
   box-shadow: 0px 1px 5px black;
+}
+
+.logoWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.menuWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: 'Playfair Display SC', serif;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: white;
+
+  /*Strip the ul of list styling*/
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: 0px;
+  }
+
+  /*Style for menu links*/
+  li a {
+    padding-left: 30px;
+    padding-right: 30px;
+    color: black;
+    font-size: 1.6em;
+  }
+}
+
+/*Hover state for top level links*/
+li:hover a {
+	color: #6789f4;
+  text-decoration: underline;
 }
 
 main {
@@ -39,18 +82,23 @@ main {
 }
 
 .galleryBox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
   a img {
-    // float: left;
-    width: 20%;
+    width: 11em;
     height: auto;
     border: 2px solid #fff;
-    -webkit-transition: -webkit-transform .15s ease;
-    -moz-transition: -moz-transform .15s ease;
-    -o-transition: -o-transform .15s ease;
-    -ms-transition: -ms-transform .15s ease;
-    transition: transform .15s ease;
+    margin: 4px;
+    -webkit-transition: -webkit-transform .25s ease;
+    -moz-transition: -moz-transform .25s ease;
+    -o-transition: -o-transform .25s ease;
+    -ms-transition: -ms-transform .25s ease;
+    transition: transform .25s ease;
     position: relative;
   }
+
   a:hover img {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
@@ -61,19 +109,14 @@ main {
   }
 }
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
-#contactPopUp {
+#contactPage {
   display: none;
   position: relative;
   background-color: white;
   z-index: 1;
 }
 
-#aboutPopUp {
+#aboutPage {
   display: none;
   position: relative;
   background-color: white;
@@ -83,108 +126,34 @@ a {
   }
 }
 
-.menuWrap {
-  display: flex;
-  flex: 0 0 25%;
-  align-items: flex-end;
-  margin-bottom: 20px;
-  font-family: 'Playfair Display SC', serif;
-  font-weight: 700;
-  font-size: 18px;
-  background-color: white;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display SC', serif;
-  font-weight: 700;
-}
-
-/*Strip the ul of list styling*/
-ul {
-  display: flex;
-  align-items: center;
-	list-style-type:none;
-  margin: 0px;
-  padding: 0px;
-}
-
-/*Style for menu links*/
-li a {
-	display:block;
-	min-width:130px;
-	height: 30px;
-	text-align: center;
-	line-height: 50px;
-	text-decoration: none;
-  color: black;
-}
-
-/*Hover state for top level links*/
-li:hover a {
-	color: #6789f4;
-  text-decoration: underline;
-}
-
-/*Responsive Styles*/
-
-@media screen and (max-width : 1379px){
-	/*Make dropdown links appear inline*/
-  header {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  footer {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logoWrap {
-    display: flex;
-    justify-content: center;
-  }
-
-  .menuWrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  ul {
-    padding-bottom: 10px;
-  }
-}
 
 /* FOOTER */
 
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 65px;
   margin-top: 30px;
+
   p {
-    display: flex;
-    align-items: center;
-    margin-left: 25px;
     font-size: 15px;
-  }
-  .footerSocialBoxWrap {
-    display: flex;
-    align-self: center;
-    flex: 0 0 25%;
-  }
-  .footerSocialBox {
-    margin-left: 10px;
-    margin-right: 20px;
-    padding-bottom: 22px;
   }
 }
 
-.socialBoxWrap {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
+
+/*Responsive Styles*/
+
+@media screen and (max-width : 1000px){
+
+.menuWrap, .logoWrap {
+    ul li a {
+      font-size: 2em;
+    }
+  }
+
+  .galleryBox {
+    a img {
+      width: 14em;
+    }
+  }
 }
