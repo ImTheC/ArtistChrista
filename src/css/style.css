@@ -11,11 +11,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display SC', serif;
   font-weight: 700; }
 
+p {
+  margin-bottom: 20px; }
+
 .fade-out {
   opacity: 0;
   transition: none; }
 
-.hidden {
+.hidden, .showWhenSmall {
   display: none; }
 
 .drop {
@@ -114,8 +117,19 @@ footer {
 
 /*Responsive Styles*/
 @media screen and (max-width: 1000px) {
+  .showWhenBig {
+    display: none; }
+
+  .showWhenSmall {
+    display: inherit; }
+
   .menuWrap ul li a, .logoWrap ul li a {
     font-size: 2em; }
+
+  .socialBoxWrap {
+    margin-top: 30px;
+    border-top: 1px solid grey;
+    padding-top: 40px; }
 
   .galleryBox a img {
     width: 14em; } }

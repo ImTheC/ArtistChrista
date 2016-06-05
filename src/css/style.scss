@@ -13,12 +13,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+p {
+  margin-bottom: 20px;
+}
+
 .fade-out {
     opacity: 0;
     transition: none;
 }
 
-.hidden {
+.hidden, .showWhenSmall {
   display: none;
 }
 
@@ -145,10 +149,24 @@ footer {
 
 @media screen and (max-width : 1000px){
 
-.menuWrap, .logoWrap {
-    ul li a {
-      font-size: 2em;
+  .showWhenBig {
+    display: none;
+  }
+
+  .showWhenSmall {
+    display: inherit;
+  }
+
+  .menuWrap, .logoWrap {
+      ul li a {
+        font-size: 2em;
+      }
     }
+
+  .socialBoxWrap {
+    margin-top: 30px;
+    border-top: 1px solid grey;
+    padding-top: 40px;
   }
 
   .galleryBox {
